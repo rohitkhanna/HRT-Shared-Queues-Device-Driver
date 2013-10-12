@@ -1,0 +1,21 @@
+HOW TO USE SOFTWARE
+1.	Make sure the wroking directory has the files -
+	cb.h  hrt-driver.h  hrt-tester    Makefile    squeue-driver.c  squeue-tester.c
+	hrt-driver.c  hrt-ioctl.h   hrt-tester.c  rand_str.c  squeue-tester
+
+2.	make ARCH=arm CROSS_COMPILE=arm-angstrom-linux-gnueabi-
+
+3.	make app-squeue
+
+4.	modify the variable SSH_IP = 192.168.1.113 in Makefile to the target IP address.
+	Also specify the beagleboard directory to push the modules to as SSH_DIR.
+
+5.	make load-driver
+
+6.	make load-app
+
+7.	At Beagleboard do -
+	insmod hrt-driver.ko
+	insmod squeue-driver.ko
+	./squeue-tester
+	
